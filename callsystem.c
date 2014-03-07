@@ -105,6 +105,7 @@ static char* alloc_commandline(char * ptrs[]);
 
 // --- set group ------------
 
+/*
 pid_t GetGroup()
 {
     int group = setsid();
@@ -147,6 +148,8 @@ void SetGroup(pid, group)
         }
     }
 }
+ */
+
 /*
  int
  callsystem(const char * cmd,
