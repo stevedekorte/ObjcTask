@@ -24,8 +24,10 @@
 {
     _stdin_child[0] =
     _stdin_child[1] = CALLSYSTEM_ILG_FD;
+    
     _stdout_child[0] =
     _stdout_child[1] = CALLSYSTEM_ILG_FD;
+    
     _stderr_child[0] =
     _stderr_child[1] = CALLSYSTEM_ILG_FD;
 }
@@ -39,8 +41,6 @@
 
 - (void)launch
 {
-	//doc SystemCall asyncRun(command, argList, envMap) Run the system call.
-    
 	int err;
     
 	FILE *fchildin;
@@ -91,7 +91,7 @@
                      0,
                      &(_pid));
     
-	NSLog(@"callsystem %@ pid %i", self.launchPath, _pid);
+	//NSLog(@"callsystem %@ pid %i", self.launchPath, _pid);
     
 	_needsClose = 1;
     
@@ -131,6 +131,7 @@
 		callsystem_close(_stdin_child);
 		callsystem_close(_stdout_child);
 		callsystem_close(_stderr_child);
+        
 		callsystem_argv_clear(&_args);
 		callsystem_env_clear(&_env);
         
