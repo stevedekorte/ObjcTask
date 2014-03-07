@@ -40,7 +40,7 @@
 - (void)launch
 {
 	//doc SystemCall asyncRun(command, argList, envMap) Run the system call.
-
+    
 	int err;
     
 	/*if you want C FILE streams*/
@@ -83,7 +83,7 @@
 	err = callsystem([self.launchPath UTF8String],
                      _args,
                      _env,
-
+                     
                      _stdin_child,
                      _stdout_child,
                      _stderr_child,
@@ -99,13 +99,13 @@
 	if (err != -1)
 	{
         self.standardInput = [[NSFileHandle alloc]
-                                initWithFileDescriptor:fileno(fchildin) closeOnDealloc:YES];
-
+                              initWithFileDescriptor:fileno(fchildin) closeOnDealloc:YES];
+        
         self.standardOutput = [[NSFileHandle alloc]
-                                initWithFileDescriptor:fileno(fchildout) closeOnDealloc:YES];
+                               initWithFileDescriptor:fileno(fchildout) closeOnDealloc:YES];
         
         self.standardError = [[NSFileHandle alloc]
-                                initWithFileDescriptor:fileno(fchilderr) closeOnDealloc:YES];
+                              initWithFileDescriptor:fileno(fchilderr) closeOnDealloc:YES];
         
 		/*
          Now that we've handed the C FILE* over to the Io File
